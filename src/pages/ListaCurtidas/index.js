@@ -16,12 +16,18 @@ export default function ListaCurtidas(props) {
         <ScrollView style = {styles.container}>
         <SafeAreaView>
 
-        <Text style = {styles.text}>Pelé curtiu!</Text>
-        <Text style = {styles.text}>Sua mãe curtiu!</Text>
-        <Text style = {styles.text}>Seu Zeca curtiu!</Text>
-        <Text style = {styles.text}>Naruto curtiu!</Text>
-        <Text style = {styles.text}>Anti-cristo curtiu!</Text>
-        <Text style = {styles.text}>Smiliguido curtiu!</Text>
+        <Text style = {styles.text}
+        onPress={() => navigation.navigate('Perfil2')}>Lucas curtiu!</Text>
+        <Text style = {styles.text}
+        onPress={() => navigation.navigate('Perfil3')}>Jonas curtiu!</Text>
+        <Text style = {styles.text}
+        onPress={() => navigation.navigate('Perfil')}>Pablo curtiu!</Text>
+        <Text style = {styles.text}
+        onPress={() => navigation.navigate('Perfil')}>Alberto curtiu!</Text>
+        <Text style = {styles.text}
+        onPress={() => navigation.navigate('Perfil')}>Sandro curtiu!</Text>
+        <Text style = {styles.text}
+        onPress={() => navigation.navigate('Perfil')}>Junior curtiu!</Text>
         <Text style = {styles.text}
         onPress={() => navigation.navigate('Perfil')}>Você curtiu!</Text>
         </SafeAreaView>
