@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { StyleSheet, FlatList,Button , View, ScrollView, TextInput, Image, Text} from 'react-native';
+import { StyleSheet, FlatList,Button , View, ScrollView, TextInput, Image, Text,Alert} from 'react-native';
 import axios from 'axios'
 import LazyImage from '../../components/LazyImage';
 import { AsyncStorage } from 'react-native';
@@ -21,6 +21,16 @@ export default function Feed(props) {
   const [text, setText] = useState('')
   const [comentarios, setComentarios] = useState([])
   const { navigation } = props
+
+  const createTwoButtonAlert = () =>
+    Alert.alert(
+      "Mensagem Curtida",
+      "",
+      [
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
 
   const MAX_LENGTH = 250;
 
@@ -116,7 +126,7 @@ export default function Feed(props) {
              name='heart-o'
              type='font-awesome'
              color='black'
-             onPress={() => {alert('você curtiu!')} }/>
+             onPress={createTwoButtonAlert}/>
              <Icon
             style = {styles.comment}
              
