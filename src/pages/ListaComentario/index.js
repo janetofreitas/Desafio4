@@ -34,7 +34,7 @@ export default function ListaComentario(props) {
     //https://5fa103ace21bab0016dfd97e.mockapi.io/api/v1/feed?page=1&limit=4
     //utilizar o server2.js no www.mockapi.io
     axios
-    .get(`https://5fa103ace21bab0016dfd97e.mockapi.io/api/v1/feed?page=${pageNumber}&limit=4`)
+    .get(`https://5fa103ace21bab0016dfd97e.mockapi.io/api/v1/feed?page=1&limit=1`)
     .then(response => {
       const totalItems = response.headers["x-total-count"]
       const data = response.data
