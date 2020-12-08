@@ -27,7 +27,7 @@ export default function Feed(props) {
       "Mensagem Curtida",
       "",
       [
-        { text: "OK", onPress: () => console.log("OK Pressed") }
+        { text: "OK", onPress: () => console.log("Confirmado") }
       ],
       { cancelable: false }
     );
