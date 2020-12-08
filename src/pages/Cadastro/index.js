@@ -8,9 +8,6 @@ import {Input,Text,Button,Icon} from 'react-native-elements';
 
 
 
-
-//import { Container, Post, Header, Avatar, Name, Description, Loading } from './styles';
-
 export default function Cadastro(props) {
     
     const [email, setEmail] = useState(null);
