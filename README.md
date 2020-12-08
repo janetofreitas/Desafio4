@@ -1,4 +1,4 @@
-Membros:
+Integrantes:
 <br>
 José de Assis Freitas Neto : 029142013
 <br>
