@@ -7,7 +7,7 @@ import like from '../../assets/baixados.png';
 import { Icon } from 'react-native-elements'
 
 
-import { Container, Post, Header, Avatar, Name, Description, Loading } from './styles';
+import { Container, Post, Header, Avatar, Name, Description, Loading, Coment } from './styles';
 
 export default function ListaComentario(props) {
     
@@ -75,7 +75,7 @@ export default function ListaComentario(props) {
   const onSave = async (id) => {
     try {
       await AsyncStorage.setItem(id, text);
-      setComentarios([...comentarios, ...text])
+      setComentarios([...comentarios, ...text + "\n"])
     } catch (error) {
       // Error saving data
     }
@@ -92,7 +92,23 @@ export default function ListaComentario(props) {
   const renderItem = ({item}) => {
     return (
       <Post>
+            <Coment style = {styles.teste}>
+            <Name style = {styles.name}>{"Caio"}</Name> {"Daora pivete ! \n"}
             
+            <Name style = {styles.name}>{"LuanGameplays"}</Name> {"Maneiro dms \n"}
+
+            <Name style = {styles.name}>{"Yoda"}</Name> {"FON \n"}
+
+            <Name style = {styles.name}>{"Jovirone"}</Name> {"DALE DELE DELE DOLE \n"}
+
+            <Name style = {styles.name}>{"Gaules"}</Name> {"RERUM RERUM RERUN \n"}
+
+            <Name style = {styles.name}>{"SMurf do Muca"}</Name> {"Codigin \n"}
+
+            <Name style = {styles.name}>{"Aristoteles"}</Name> {"Um trabalho tão facil desse... \n"}
+
+            </Coment>
+
             <Description>
               {comentarios}
             </Description>
@@ -157,5 +173,8 @@ comment: {
 },
 name: {
   
+},
+teste:{
+  padding: 5
 }
 })

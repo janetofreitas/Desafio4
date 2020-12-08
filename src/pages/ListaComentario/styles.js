@@ -22,13 +22,19 @@ export const Avatar = styled.Image`
 `;
 
 export const Name = styled.Text`
-  font-weight: 600;
+  font-weight: bold;
 `;
 
 export const Description = styled.Text`
   padding: 15px;
   line-height: 18px;
 `;
+
+export const Coment = styled.Text`
+  padding: 15px;
+  line-height: 18px;
+`;
+
 
 export const Loading = styled.ActivityIndicator.attrs({
   size: 'small',

@@ -7,7 +7,7 @@ import like from '../../assets/baixados.png';
 import { Icon } from 'react-native-elements'
 
 
-import { Container, Post, Header, Avatar, Name, Description, Loading } from './styles';
+import { Container, Post, Header, Avatar, Name, Description, Loading, Coment, Like } from './styles';
 
 
 export default function Feed(props) {
@@ -85,7 +85,7 @@ export default function Feed(props) {
   const onSave = async (id) => {
     try {
       await AsyncStorage.setItem(id, text);
-      setComentarios([...comentarios, ...text])
+      setComentarios([...comentarios ,  ...text + "\n"])
     } catch (error) {
       // Error saving data
     }
@@ -118,7 +118,7 @@ export default function Feed(props) {
              
             
 
-            <Description>
+            <Like >
             
             <Icon
             style = {styles.like}
@@ -141,12 +141,20 @@ export default function Feed(props) {
             onPress={() => navigation.navigate('ListaCurtidas')}>CURTIDAS</Text>
             </View>
             
-            </Description>
+            </Like>
 
             <Description>
             <Name style = {styles.name}>{item.author.name}</Name> {item.description}
             </Description>
 
+            <Coment style = {styles.teste}>
+            <Name style = {styles.name}>{"Caio"}</Name> {"Daora pivete ! \n"}
+            
+            <Name style = {styles.name}>{"LuanGameplays"}</Name> {"Maneiro dms"}
+            
+            </Coment>
+            
+            
             <Description>
               {comentarios}
             </Description>
@@ -169,6 +177,7 @@ export default function Feed(props) {
       </Post>
     )
   }
+  
   
   const handleViewableChanged = useCallback(({ changed }) => {
     setViewable(changed.map(({ item }) => item.id));
@@ -228,4 +237,7 @@ listalike: {
   fontWeight: 'bold',
   padding: 1
 },
+teste:{
+  padding: 5
+}
 })
