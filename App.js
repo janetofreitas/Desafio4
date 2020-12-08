@@ -4,6 +4,8 @@ import Feed from './src/pages/Feed';
 import Login from './src/pages/Login';
 import Cadastro from './src/pages/Cadastro';
 import ListaComentario from './src/pages/ListaComentario';
+import ListaCurtidas from './src/pages/ListaCurtidas';
+import Perfil from './src/pages/Perfil';
 import { Assets, createStackNavigator } from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native'
 import logo from './src/assets/instagram.png';
@@ -19,6 +21,8 @@ export default function App() {
           <Stack.Screen name="Feed" component={Feed} />
           <Stack.Screen name="Cadastro" component={Cadastro} />
           <Stack.Screen name="ListaComentario" component={ListaComentario} />
+          <Stack.Screen name="ListaCurtidas" component={ListaCurtidas} />
+          <Stack.Screen name="Perfil" component={Perfil} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>

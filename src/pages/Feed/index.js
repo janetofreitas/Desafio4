@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { StyleSheet, FlatList,Button , View, ScrollView, TextInput, Image} from 'react-native';
+import { StyleSheet, FlatList,Button , View, ScrollView, TextInput, Image, Text} from 'react-native';
 import axios from 'axios'
 import LazyImage from '../../components/LazyImage';
 import { AsyncStorage } from 'react-native';
@@ -106,6 +106,8 @@ export default function Feed(props) {
               source={{ uri: item.image }}
             />
              
+            
+
             <Description>
             
             <Icon
@@ -122,8 +124,19 @@ export default function Feed(props) {
              type='font-awesome'
              color='black'
              onPress={() => navigation.navigate('ListaComentario')} />
+
+           <View>
+            <Text 
+            style = {styles.listalike}
+            onPress={() => navigation.navigate('ListaCurtidas')}>CURTIDAS</Text>
+            </View>
+            
+            </Description>
+
+            <Description>
             <Name style = {styles.name}>{item.author.name}</Name> {item.description}
             </Description>
+
             <Description>
               {comentarios}
             </Description>
@@ -197,5 +210,12 @@ comment: {
 },
 name: {
   
-}
+},
+listalike: {
+  
+  bottom: 7,
+  left: 5,
+  fontWeight: 'bold',
+  padding: 1
+},
 })
