@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { StyleSheet, FlatList,Button , View, ScrollView, TextInput, Image, Text,Alert} from 'react-native';
+import { StyleSheet, FlatList,Button , View, ScrollView, TextInput, Image, Text,Alert, TouchableOpacity} from 'react-native';
 import axios from 'axios'
 import LazyImage from '../../components/LazyImage';
 import { AsyncStorage } from 'react-native';
-import like from '../../assets/baixados.png';
+import like from '../../assets/redHeart.png';
 import { Icon } from 'react-native-elements'
-
+import slike from '../../assets/like2.png';
 
 import { Container, Post, Header, Avatar, Name, Description, Loading, Coment, Like } from './styles';
 
@@ -97,7 +97,15 @@ export default function Feed(props) {
     loadPage()
   }, []);
 
- 
+  function clickLike(likeIcon) {
+    if (likeIcon % 2 === 0) {
+      return like;
+    } else {
+      return slike;
+    }
+  }
+
+  const [likeIcon, setLikeIcon] = React.useState(1);
 
   const renderItem = ({item}) => {
     return (
@@ -118,16 +126,13 @@ export default function Feed(props) {
              
             
 
-            <Like >
+            <Like>
+            
+            <TouchableOpacity onPress={() => setLikeIcon(likeIcon + 1)}>
+              <Image source={clickLike(likeIcon)} style={styles.like} />
+            </TouchableOpacity>
             
             <Icon
-            style = {styles.like}
-             
-             name='heart-o'
-             type='font-awesome'
-             color='black'
-             onPress={createTwoButtonAlert}/>
-             <Icon
             style = {styles.comment}
              
              name='comment-o'
@@ -221,6 +226,10 @@ like: {
   right: 0,
   margin: 0,
   paddingLeft:1,
+  marginRight: 5,
+  width: 23,
+  height: 23,
+  top: 2
 },
 comment: {
   bottom: 2,
@@ -232,7 +241,6 @@ name: {
 },
 listalike: {
   
-  bottom: 7,
   left: 5,
   fontWeight: 'bold',
   padding: 1
