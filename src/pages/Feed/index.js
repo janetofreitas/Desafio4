@@ -24,7 +24,7 @@ export default function Feed(props) {
 
   const createTwoButtonAlert = () =>
     Alert.alert(
-      "Mensagem Curtida",
+      "Postagem Curtida",
       "",
       [
         { text: "OK", onPress: () => console.log("Confirmado") }
