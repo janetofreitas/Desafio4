@@ -26,13 +26,13 @@ export const Name = styled.Text`
 `;
 
 export const Description = styled.Text`
-  padding: 15px;
-  line-height: 18px;
+  padding-left: 15px;
+  line-height: 20px;
 `;
 
 export const Coment = styled.Text`
-  padding: 15px;
-  line-height: 18px;
+  padding-left: 15px;
+  line-height: 20px;
 `;
 
 

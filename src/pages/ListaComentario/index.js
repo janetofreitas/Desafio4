@@ -108,8 +108,34 @@ export default function ListaComentario(props) {
             <Name style = {styles.name}>{"Aristoteles"}</Name> {"Um trabalho tão facil desse... \n"}
 
             </Coment>
-
             <Description>
+              {comentarios}
+            </Description>
+            <View style={styles.container}>
+
+              <View style={styles.comentario}>
+                    <TextInput
+                      multiline={true}
+                      onChangeText={(text) => setText(text)}
+                      placeholder={"Comentar..."}
+                      style={[styles.text]}
+                      maxLength={MAX_LENGTH}
+                      value={text}/>
+                  
+                    <View style={styles.botao}>
+                    
+                    <Button
+                      title="Publicar"
+                      onPress={() => onSave(String(item.id))}
+                      accessibilityLabel="Publicar">
+                    </Button> 
+
+              </View>
+              </View>
+
+            </View>
+            
+            {/* <Description>
               {comentarios}
             </Description>
            
@@ -126,7 +152,7 @@ export default function ListaComentario(props) {
               title="Salvar"
               onPress={() => onSave(String(item.id))}
               accessibilityLabel="Salvar">
-            </Button>
+            </Button> */}
 
       </Post>
     )
@@ -153,12 +179,12 @@ const styles = StyleSheet.create(
   {text: {
     fontSize: 30,
     lineHeight: 33,
-    color: "#333333",
-    padding: 16,
+    padding: 10,
     paddingTop: 16,
-    minHeight: 170,
+    minHeight: 50,
     borderTopWidth: 1,
-    borderColor: "rgba(212,211,211, 0.3)"
+    borderColor: "rgba(212,211,211, 0.3)",
+    color:"rgb(80,79,80)"
 },
 like: {
   padding: 5,
@@ -176,5 +202,25 @@ name: {
 },
 teste:{
   padding: 5
+},
+comentario: {
+  flexDirection: "row",
+  width: 180,
+
+},
+botao: {
+  
+  justifyContent: "center",
+  width: 100,
+  left: 48
+},
+container:{
+  marginTop: 10,
+  marginLeft: 10,
+  marginBottom: 10,
+  marginRight: 10,
+  backgroundColor: '#C0C0C0',
+  borderTopWidth: 0,
+  borderBottomWidth: 0
 }
 })

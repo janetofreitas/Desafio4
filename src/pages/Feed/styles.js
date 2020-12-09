@@ -35,7 +35,7 @@ export const Like = styled.Text`
   line-height: 18px;
 `;
 export const Coment = styled.Text`
-  padding: 15px;
+  padding: 10px;
   line-height: 18px;
 `;
 
