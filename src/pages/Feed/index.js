@@ -22,15 +22,15 @@ export default function Feed(props) {
   const [comentarios, setComentarios] = useState([])
   const { navigation } = props
 
-  const createTwoButtonAlert = () =>
-    Alert.alert(
-      "Postagem Curtida",
-      "",
-      [
-        { text: "OK", onPress: () => console.log("Confirmado") }
-      ],
-      { cancelable: false }
-    );
+  // const createTwoButtonAlert = () =>
+  //   Alert.alert(
+  //     "Postagem Curtida",
+  //     "",
+  //     [
+  //       { text: "OK", onPress: () => console.log("Confirmado") }
+  //     ],
+  //     { cancelable: false }
+  //   );
 
   const MAX_LENGTH = 250;
 
@@ -68,28 +68,28 @@ export default function Feed(props) {
     setRefreshing(false);
   }
 
-  const onGet = (id) => {
-    try {
+  // const onGet = (id) => {
+  //   try {
 
-      const value = AsyncStorage.getItem(id);
+  //     const value = AsyncStorage.getItem(id);
 
-      if (value !== null) {
-        // We have data!!
-        setComentarios(value)
-      } 
-    } catch (error) {
-      // Error saving data
-    }
-  }
+  //     if (value !== null) {
+  //       // We have data!!
+  //       setComentarios(value)
+  //     } 
+  //   } catch (error) {
+  //     // Error saving data
+  //   }
+  // }
 
-  const onSave = async (id) => {
-    try {
-      await AsyncStorage.setItem(id, text);
-      setComentarios([...comentarios ,  ...text + "\n"])
-    } catch (error) {
-      // Error saving data
-    }
-  }
+  // const onSave = async (id) => {
+  //   try {
+  //     await AsyncStorage.setItem(id, text);
+  //     setComentarios([...comentarios ,  ...text + "\n"])
+  //   } catch (error) {
+  //     // Error saving data
+  //   }
+  // }
 
     
 
@@ -153,14 +153,21 @@ export default function Feed(props) {
             </Description>
 
             <Coment style = {styles.teste}>
-            <Name style = {styles.name}>{"Caio"}</Name> {"Daora pivete ! \n"}
+              <TouchableOpacity
+                style={{marginTop: 5, marginStart: 15}}
+                onPress={() => navigation.navigate('ListaComentario')}>
+                  <Text style={{color: '#999'}}>
+                    Ver todos os comentarios
+                  </Text>
+              </TouchableOpacity>
+            <Name style = {styles.name}>{"\nCaio"}</Name> {"Daora pivete ! \n"}
             
             <Name style = {styles.name}>{"LuanGameplays"}</Name> {"Maneiro dms"}
             
             </Coment>
             
             
-            <Description>
+            {/* <Description>
               {comentarios}
             </Description>
            
@@ -177,7 +184,7 @@ export default function Feed(props) {
               title="Salvar"
               onPress={() => onSave(String(item.id))}
               accessibilityLabel="Salvar">
-            </Button>
+            </Button> */}
 
       </Post>
     )
