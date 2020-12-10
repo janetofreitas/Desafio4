@@ -41,7 +41,7 @@ export default class Login extends React.Component {
     }
     
 
-    signUpUser = (email, password) => {
+    /*signUpUser = (email, password) => {
 
       try{
         if(this.state.password.length<6){
@@ -56,13 +56,14 @@ export default class Login extends React.Component {
         console.log(error.toString())
         }
       
-    }
+    }*/
 
     loginUser = (email, password) => {
       try{
         firebase.auth().signInWithEmailAndPassword(email,password).then(
           () => this.props.navigation.navigate('Feed')
         )
+
         }
 
         catch(error){

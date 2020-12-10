@@ -154,9 +154,9 @@ export default function Feed(props) {
 
             <Coment style = {styles.teste}>
               <TouchableOpacity
-                style={{marginTop: 5, marginStart: 15}}
+                
                 onPress={() => navigation.navigate('ListaComentario')}>
-                  <Text style={{color: '#999'}}>
+                  <Text style={{color: 'black', fontWeight: 'bold'}}>
                     Ver todos os comentarios
                   </Text>
               </TouchableOpacity>

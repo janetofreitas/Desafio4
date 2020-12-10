@@ -38,8 +38,8 @@ export default class Cadastro extends React.Component {
   signUpUser = (email, password) => {
 
     try{
-      if(this.state.password.length<6){
-        alert("Minimo 6 digitos!")
+      if(this.state.password.length<3){
+        alert("Minimo 3 digitos!")
         return;
       }
 
@@ -61,7 +61,7 @@ export default class Cadastro extends React.Component {
     
   }
 
-  loginUser = (email, password) => {
+  /*loginUser = (email, password) => {
     try{
       firebase.auth().signInWithEmailAndPassword(email,password).then(function(user){
         console.log(user)
@@ -71,7 +71,7 @@ export default class Cadastro extends React.Component {
       catch(error){
       console.log(error.toString())
       }
-  }
+  }*/
   
     render(){
     return(
