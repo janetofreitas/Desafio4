@@ -38,8 +38,8 @@ export default class Cadastro extends React.Component {
   signUpUser = (email, password) => {
 
     try{
-      if(this.state.password.length<3){
-        alert("Minimo 3 digitos!")
+      if(this.state.password.length<6){
+        alert("Minimo 6 digitos!")
         return;
       }
 
