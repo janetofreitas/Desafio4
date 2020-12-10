@@ -5,18 +5,71 @@ import LazyImage from '../../components/LazyImage';
 import { AsyncStorage } from 'react-native';
 import logo from '../../assets/instagram.png';
 import {Input,Text,Button,Icon} from 'react-native-elements';
+import * as firebase from 'firebase';
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBpXJKGKHNVZDkF_VZtQcP5leYvWDuKIyM",
+    authDomain: "desafio4-a07a1.firebaseapp.com",
+    databaseURL: "https://desafio4-a07a1-default-rtdb.firebaseio.com",
+    projectId: "desafio4-a07a1",
+    storageBucket: "desafio4-a07a1.appspot.com",
+    messagingSenderId: "957217691332",
+    appId: "1:957217691332:web:e15eaf5b2e8237c76ddb91",
+    measurementId: "G-WEEEG3CMST"
+};
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}else {
+  firebase.app(); 
+}
+
 
 
 
 
 //import { Container, Post, Header, Avatar, Name, Description, Loading } from './styles';
 
-export default function Login(props) {
+export default class Login extends React.Component {
     
-    const [email, setEmail] = useState(null);
-    const [password, setPassword] = useState(null);
-    const { navigation } = props
+    constructor(props){
+      super(props)
+      this.state = ({
+        email: '',
+        password: ''
+      })
+    }
     
+
+    signUpUser = (email, password) => {
+
+      try{
+        if(this.state.password.length<6){
+          alert("Minimo 6 digitos!")
+          return;
+        }
+
+        firebase.auth().createUserWithEmailAndPassword(email,password)
+        }
+
+        catch(error){
+        console.log(error.toString())
+        }
+      
+    }
+
+    loginUser = (email, password) => {
+      try{
+        firebase.auth().signInWithEmailAndPassword(email,password).then(
+          () => this.props.navigation.navigate('Feed')
+        )
+        }
+
+        catch(error){
+        console.log(error.toString())
+        }
+    }
+    render(){
     return(
     <View style = {styles.container}>
        
@@ -25,30 +78,32 @@ export default function Login(props) {
        style = {styles.logo}/>
        <TextInput
          style = {styles.input}
-         onChangeText = {value => setEmail(value)}
+         onChangeText = {email => this.setState({email})}
          placeholder = "Digite seu e-mail!"
        />  
 
        <TextInput
          style = {styles.input}
          secureTextEntry = {true}
-         onChangeText = {value => setPassword(value)}
+         onChangeText = {password => this.setState({password})}
          placeholder = "Digite sua senha!"
        />  
 
         <TouchableOpacity
         style = {styles.button}
-        onPress={() => navigation.navigate('Feed')}>
+        onPress={() => this.loginUser(this.state.email,this.state.password)}>
             <Text style = {styles.buttonText}>Entrar</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
         style = {styles.button}
-        onPress={() => navigation.navigate('Cadastro')}>
+        onPress={() => this.props.navigation.navigate('Cadastro')}>
             <Text style = {styles.buttonText}>Não tem uma conta? Cadastre-se!</Text>
         </TouchableOpacity>
     </View>
     );
+
+}
 }
 
 const styles = StyleSheet.create({

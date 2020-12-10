@@ -14,6 +14,8 @@ import logo from './src/assets/instagram.png';
 const Stack = createStackNavigator()
 
 export default function App() {
+
+  
   return (
     <View style={style.container}>
       <NavigationContainer>
